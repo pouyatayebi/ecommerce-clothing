@@ -45,8 +45,14 @@ const HomePage = () => {
   return (
     <div className={styles.homePage}>
       <Directory>
-        {sections.map(({ title, id, imageUrl, large }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} large={large} />
+        {sections.map(({ title, id, imageUrl, large, linkUrl }) => (
+          <MenuItem
+            key={id}
+            title={title}
+            imageUrl={imageUrl}
+            large={large}
+            linkUrl={linkUrl}
+          />
         ))}
       </Directory>
     </div>
