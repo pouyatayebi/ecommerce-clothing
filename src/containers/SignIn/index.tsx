@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './SignIn.module.scss';
 import FormInput from '../../components/FormInput';
@@ -10,6 +10,8 @@ interface InputFormData {
 }
 
 const SignIn = () => {
+  const [formData, setFormData] = useState({});
+
   const {
     register,
     handleSubmit,
@@ -17,7 +19,7 @@ const SignIn = () => {
     formState: { errors },
   } = useForm<InputFormData>();
   const onSubmit = (data: InputFormData) => {
-    console.log(data);
+    setFormData(data);
   };
   return (
     <div className={styles.signIn}>
@@ -36,6 +38,7 @@ const SignIn = () => {
           {...register('password', { required: true })}
         />
         {errors.password && <span>This field is required</span>}
+        <span>{formData}</span>
 
         <Button onClick={() => reset()}>sign in</Button>
       </form>
