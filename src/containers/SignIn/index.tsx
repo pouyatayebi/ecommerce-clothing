@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './SignIn.module.scss';
 import FormInput from '../../components/FormInput';
@@ -13,11 +13,11 @@ const SignIn = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<InputFormData>();
-  const onSubmit = (data: InputFormData, e: any) => {
+  const onSubmit = (data: InputFormData) => {
     console.log(data);
-    e.target.reset();
   };
   return (
     <div className={styles.signIn}>
@@ -37,7 +37,7 @@ const SignIn = () => {
         />
         {errors.password && <span>This field is required</span>}
 
-        <Button>sign in</Button>
+        <Button onClick={() => reset()}>sign in</Button>
       </form>
     </div>
   );
