@@ -17,7 +17,7 @@ interface PreviewCollectionProps {
 const PreviewCollection = ({ title, items }: PreviewCollectionProps) => {
   return (
     <div className={styles.CollectionPreview}>
-      <h1 className={styles.title}>{title.toUpperCase()}</h1>
+      <h2 className={styles.title}>{title.toUpperCase()}</h2>
       <div className={styles.preview}>
         {items
           .filter((item, index) => index < 4)
