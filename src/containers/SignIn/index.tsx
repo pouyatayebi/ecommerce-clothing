@@ -10,15 +10,17 @@ interface InputFormData {
 }
 
 const SignIn = () => {
-  const { register, handleSubmit } = useForm<InputFormData>();
-  const onSubmit = (data: InputFormData) => {
-    console.log(data);
-  };
+  // const { register, handleSubmit } = useForm<InputFormData>();
+  const { register } = useForm<InputFormData>();
+  // const onSubmit = (data: InputFormData) => {
+  //   console.log(data);
+  // };
   return (
     <div className={styles.signIn}>
       <h2 className={styles.title}>I already have an account</h2>
       <span>Sign in with your email and password</span>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+      <form>
         <FormInput
           type="email"
           label="Email"
