@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './SignIn.module.scss';
 import FormInput from '../../components/FormInput';
