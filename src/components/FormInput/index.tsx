@@ -7,7 +7,10 @@ interface FormInputProps {
 }
 
 const FormInput = React.forwardRef(
-  ({ type, label, ...props }: FormInputProps, ref) => {
+  (
+    { type, label, ...props }: FormInputProps,
+    ref: React.LegacyRef<HTMLInputElement>,
+  ) => {
     const randId = `_${Math.random()}`;
 
     return (
@@ -21,6 +24,7 @@ const FormInput = React.forwardRef(
           className={styles.formInput}
           id={randId}
           type={type}
+          ref={ref}
           {...props}
         />
       </div>
