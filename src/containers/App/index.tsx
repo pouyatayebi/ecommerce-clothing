@@ -7,10 +7,6 @@ import Header from '../Header';
 
 import './App.css';
 
-const HatPage = () => {
-  return <div>hat page</div>;
-};
-
 const App = () => {
   return (
     <div>
