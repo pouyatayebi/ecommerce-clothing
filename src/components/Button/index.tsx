@@ -4,7 +4,7 @@ import styles from './Button.module.scss';
 interface ButtonProps {
   condition?: boolean;
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({ condition, children, ...props }: ButtonProps) => {
@@ -21,6 +21,7 @@ const Button = ({ condition, children, ...props }: ButtonProps) => {
 
 Button.defaultProps = {
   condition: false,
+  onClick: () => console.log('data'),
 };
 
 export default Button;
