@@ -24,6 +24,7 @@
         "prettier"
     ],
     "rules": {
+       "react/jsx-props-no-spreading":"off",
         "prettier/prettier": "error",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "react/jsx-one-expression-per-line": "off",
