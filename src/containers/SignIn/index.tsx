@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './SignIn.module.scss';
 import { AuthContext } from '../../context/AuthContext';
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 import FormInput from '../../components/FormInput';
 import Button from '../../components/Button';
