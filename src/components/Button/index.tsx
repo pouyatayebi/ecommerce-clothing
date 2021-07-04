@@ -4,6 +4,9 @@ import styles from './Button.module.scss';
 interface ButtonProps {
   condition?: boolean;
   children: React.ReactNode;
+  onClick?:
+    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
+    | undefined;
 }
 
 const Button = ({ condition, children, ...props }: ButtonProps) => {
@@ -20,6 +23,9 @@ const Button = ({ condition, children, ...props }: ButtonProps) => {
 
 Button.defaultProps = {
   condition: false,
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  },
 };
 
 export default Button;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './SignIn.module.scss';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 import FormInput from '../../components/FormInput';
 import Button from '../../components/Button';
 
@@ -34,6 +35,7 @@ const SignIn = () => {
         />
 
         <Button>sign in</Button>
+        <Button onClick={signInWithGoogle}>sign in with google</Button>
       </form>
     </div>
   );
