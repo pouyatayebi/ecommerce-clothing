@@ -35,7 +35,9 @@ const SignIn = () => {
         />
 
         <Button>sign in</Button>
-        <Button onClick={signInWithGoogle}>sign in with google</Button>
+        <Button condition onClick={signInWithGoogle}>
+          sign in with google
+        </Button>
       </form>
     </div>
   );
