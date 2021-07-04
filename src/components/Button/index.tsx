@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Button.module.scss';
-import { auth } from '../../firebase/firebase.utils';
 
 interface ButtonProps {
   condition?: boolean;

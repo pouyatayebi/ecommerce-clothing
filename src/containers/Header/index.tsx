@@ -11,9 +11,6 @@ interface HeaderProps {
 }
 
 const Header = ({ user }: HeaderProps) => {
-  const signOut = async () => {
-    await auth.signOut;
-  };
   return (
     <div className={styles.header}>
       <Link className={styles.logoContainer} to="/">
