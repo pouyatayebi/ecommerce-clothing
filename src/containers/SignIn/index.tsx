@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import styles from './SignIn.module.scss';
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { AuthContext } from '../../context/AuthContext';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+
 import FormInput from '../../components/FormInput';
 import Button from '../../components/Button';
 
@@ -13,6 +15,8 @@ interface InputFormData {
 const SignIn = () => {
   // const { register, handleSubmit } = useForm<InputFormData>();
   const { register } = useForm<InputFormData>();
+  const user = useContext(AuthContext);
+
   // const onSubmit = (data: InputFormData) => {
   //   console.log(data);
   // };
@@ -39,6 +43,13 @@ const SignIn = () => {
           sign in with google
         </Button>
       </form>
+      {
+        user ? (
+          <p>welcome {user.email}</p>
+        ) : (
+          <p>no ueser login</p>
+        ) /* just for debigging,will remove later' */
+      }
     </div>
   );
 };
