@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Button.module.scss';
+import { auth } from '../../firebase/firebase.utils';
 
 interface ButtonProps {
   condition?: boolean;
   children: React.ReactNode;
   onClick?:
-    | ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
+    | ((event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
     | undefined;
 }
 
