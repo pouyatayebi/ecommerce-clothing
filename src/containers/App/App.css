@@ -7,3 +7,5 @@ a{
     text-decoration: none;
     color: black;
 }
+
+*{box-sizing: git border-box;}

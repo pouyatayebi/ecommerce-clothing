@@ -5,16 +5,24 @@ import { auth } from '../../firebase/firebase.utils';
 interface ButtonProps {
   condition?: boolean;
   children: React.ReactNode;
+  isGoogleSignIn?: boolean;
   onClick?:
     | ((event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
     | undefined;
 }
 
-const Button = ({ condition, children, ...props }: ButtonProps) => {
+const Button = ({
+  condition,
+  children,
+  isGoogleSignIn,
+  ...props
+}: ButtonProps) => {
   return (
     <button
       type={condition ? 'button' : 'submit'}
-      className={styles.customButton}
+      className={`${isGoogleSignIn ? styles.googleSignIn : ''} ${
+        styles.customButton
+      }`}
       {...props}
     >
       {children}
@@ -27,6 +35,7 @@ Button.defaultProps = {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   },
+  isGoogleSignIn: false,
 };
 
 export default Button;

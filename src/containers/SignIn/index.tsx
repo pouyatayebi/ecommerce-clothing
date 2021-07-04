@@ -37,11 +37,12 @@ const SignIn = () => {
           label="Password"
           {...register('password', { required: true })}
         />
-
-        <Button>sign in</Button>
-        <Button condition onClick={signInWithGoogle}>
-          sign in with google
-        </Button>
+        <div className={styles.buttons}>
+          <Button>sign in</Button>
+          <Button condition isGoogleSignIn onClick={signInWithGoogle}>
+            sign in with google
+          </Button>
+        </div>
       </form>
       {
         user ? (
