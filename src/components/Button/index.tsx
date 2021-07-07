@@ -1,40 +1,18 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import styles from './Button.module.scss';
 
-interface ButtonProps {
-  condition?: boolean;
-  children: React.ReactNode;
-  isGoogleSignIn?: boolean;
-  onClick?:
-    | ((event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void)
-    | undefined;
+interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
+    type: 'submit' | 'button' | 'reset';
+    children: React.ReactNode;
 }
 
-const Button = ({
-  condition,
-  children,
-  isGoogleSignIn,
-  ...props
-}: ButtonProps) => {
-  return (
-    <button
-      type={condition ? 'button' : 'submit'}
-      className={`${isGoogleSignIn ? styles.googleSignIn : ''} ${
-        styles.customButton
-      }`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-Button.defaultProps = {
-  condition: false,
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  },
-  isGoogleSignIn: false,
+const Button = ({ type, children, ...props }: ButtonProps) => {
+    return (
+        <button type={type} className={styles.customButton} {...props}>
+            {children}
+        </button>
+    );
 };
 
 export default Button;

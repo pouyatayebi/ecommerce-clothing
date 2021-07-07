@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
 import { AuthContext } from '../context/AuthContext';
-import { auth } from '../firebase/firebase.utils';
+import { auth, db } from '../firebase/firebase';
 
 interface AuthProviderProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({
-  children,
+    children,
 }: AuthProviderProps) => {
-  const [user, setUser] = useState<firebase.User | null>(null);
+    const [user, setUser] = useState<firebase.User | null>(null);
+    if (user) {
+        const { email } = user;
+        db.collection('users').add({
+            email,
+        });
+    }
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
-      setUser(firebaseUser);
-    });
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((firebaseUser) => {
+            setUser(firebaseUser);
+        });
 
-    return unsubscribe;
-  }, []);
-  // console.log('user is: ', user);
-  // const email = user?.email;
-  // console.log('user', email);
+        return unsubscribe;
+    }, []);
 
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 };
