@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase/app';
 import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../../assets/4.1 crown.svg';
-import { AuthContext } from '../../context/AuthContext';
 import { auth } from '../../firebase/firebase';
 import Button from '../../components/Button';
 
